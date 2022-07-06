@@ -74,9 +74,7 @@ static int	print_all(va_list ap, const char *format)
 		num = print_s(va_arg(ap, char *));
 	else if (*format == 'd' || *format == 'i')
 		num = print_i(va_arg(ap, int));
-	else if (*format == 'u')
-		num = print_u_x(va_arg(ap, unsigned int), *format);
-	else if (*format == 'x' || *format == 'X')
+	else if (*format == 'u' || *format == 'x' || *format == 'X')
 		num = print_u_x(va_arg(ap, unsigned int), *format);
 	else if (*format == 'p')
 		num = print_p(va_arg(ap, uintptr_t));
@@ -88,18 +86,16 @@ int	ft_printf(const char *format, ...)
 	va_list ap;
 	int		num_chars;
 	
+	num_chars = 0;
 	va_start(ap, format);
 	while (*format)
 	{
-		if (*format != '%')
+		if (*format == '%')
+			num_chars += print_all(ap, ++format);
+		else 
 		{
 			ft_putchar_fd(*format, 1);
 			num_chars++;
-		}
-		else
-		{
-			*format++;
-			num_chars += print_all(ap, format);
 		}
 		format++;
 	}

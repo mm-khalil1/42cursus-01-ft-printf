@@ -14,15 +14,10 @@
 
 void	ft_putunbr_fd(unsigned int n, int fd)
 {
-	char	num;
-
 	if (fd < 0)
 		return ;
 	if (n < 10)
-	{
-		num = n + '0';
-		write(fd, &num, 1);
-	}
+		ft_putchar_fd(n + '0', fd);
 	else
 	{
 		ft_putunbr_fd(n / 10, fd);

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhalil <mkhalil@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:30:40 by mkhalil           #+#    #+#             */
-/*   Updated: 2022/07/06 11:31:06 by mkhalil          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:22:35 by mkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	count_digits_u(unsigned int n, unsigned int base)
+int	count_digits_u(unsigned int n, unsigned int base)
 {
 	int	count;
 
@@ -25,16 +25,16 @@ static int	count_digits_u(unsigned int n, unsigned int base)
 	return (count);
 }
 
-static int	count_digits_i(int n, unsigned int base)
+int	count_digits_i(int n, unsigned int base)
 {
 	if (n == -2147483648)
 		return (11);
 	if (n < 0)
-		return (1 + count_digits_u(-n, base));
+		return (1 + count_digits_u(-n, base)); //plus 1 for the minus
 	return (count_digits_u(n, base));
 }
 
-static char	*dec_to_hex(unsigned int num, int flag)
+char	*dec_to_hex(unsigned int num, int flag)
 {
 	char	* base;
 	char	* hex;
@@ -58,7 +58,7 @@ static char	*dec_to_hex(unsigned int num, int flag)
 	return (hex);
 }
 
-static char	*ptr_to_hex(uintptr_t address)
+char	*ptr_to_hex(uintptr_t address)
 {
 	char		* base;
 	char		* hex;
