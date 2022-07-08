@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_putnbr_u_x(unsigned int n, unsigned int base, int flag)
+void	ft_putnbr_u_x(size_t n, size_t base, int flag)
 {
 	char	*ref;
 
