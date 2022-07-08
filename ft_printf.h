@@ -5,6 +5,7 @@
 # include <stdarg.h>
 
 void	ft_putnbr_u_x(unsigned int n, unsigned int base, int flag);
+int	count_digits(int n, unsigned int base, int flag);
 int		count_digits_u(unsigned int n, unsigned int base);
 int		count_digits_i(int n, unsigned int base);
 char	*dec_to_hex(unsigned int num, int flag);
