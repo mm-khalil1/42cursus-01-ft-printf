@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	count_digits_u(unsigned int n, unsigned int base)
+int	count_digits_u(size_t n, size_t base)
 {
 	int	count;
 
@@ -25,7 +25,7 @@ int	count_digits_u(unsigned int n, unsigned int base)
 	return (count);
 }
 
-int	count_digits_i(int n, unsigned int base)
+int	count_digits_i(int n, size_t base)
 {
 	if (n == -2147483648)
 		return (11);
@@ -34,9 +34,10 @@ int	count_digits_i(int n, unsigned int base)
 	return (count_digits_u(n, base));
 }
 
-int	count_digits(int n, unsigned int base, int flag)
+int	count_digits(int n, size_t base, int flag)
 {
 	int	count;
+	size_t	nb;
 	
 	count = 1;
 	if (flag == 'i')
@@ -46,46 +47,24 @@ int	count_digits(int n, unsigned int base, int flag)
 		if (n < 0)
 		{
 			count++;
-			n = -n;
+			nb = -n;
 		}
 	}
-	while ((unsigned int)n > (base - 1))
+	if (flag == 'u')
+		nb = (size_t) n;
+	while (nb > (base - 1))
 	{
-		n /= base;
+		nb /= base;
 		count++;
 	}
 	return (count);
-}
-
-char	*dec_to_hex(unsigned int num, int flag)
-{
-	char	* base;
-	char	* hex;
-	int		count;
-
-	base = "0123456789abcdef";
-	count = count_digits_u(num, 16);
-	hex = malloc (sizeof(char) * (count + 1));
-	if (!hex)
-		return (NULL);
-	hex[count] = '\0';
-	while (--count >= 0)
-	{
-		hex[count] = base[num % 16];
-		num /= 16;
-	}
-	if (flag == 'X')
-		while (hex[++count])
-			if (ft_isalpha(hex[count]))
-				hex[count] = ft_toupper(hex[count]);
-	return (hex);
 }
 
 char	*ptr_to_hex(uintptr_t address)
 {
 	char		* base;
 	char		* hex;
-	int			count;
+	int		count;
 	uintptr_t	temp_add;
 
 	base = "0123456789abcdef";
