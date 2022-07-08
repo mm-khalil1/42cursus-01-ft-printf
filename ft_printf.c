@@ -32,7 +32,7 @@ static int	print_s(char *s)
 static int	print_i(int n)
 {
 	ft_putnbr_fd(n, 1);
-	return (count_digits_i(n, 10));
+	return (count_digits(n, 10, 'i'));
 }
 
 static int	print_u_x(unsigned int n, int flag)
@@ -42,12 +42,12 @@ static int	print_u_x(unsigned int n, int flag)
 	if (flag == 'u')
 	{
 		ft_putnbr_u_x(n, 10, flag);
-		return (count_digits_u(n, 10));
+		return (count_digits(n, 10, 'u'));
 	}
 	else
 	{
 		ft_putnbr_u_x(n, 16, flag);
-		return (count_digits_u(n, 16));
+		return (count_digits(n, 16, 'u'));
 	}
 }
 
