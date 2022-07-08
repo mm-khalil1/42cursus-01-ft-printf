@@ -4,10 +4,10 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 
-void	ft_putnbr_u_x(unsigned int n, unsigned int base, int flag);
-int	count_digits(int n, unsigned int base, int flag);
-int		count_digits_u(unsigned int n, unsigned int base);
-int		count_digits_i(int n, unsigned int base);
-char	*ptr_to_hex(uintptr_t address);
+void	ft_putnbr_u_x(size_t n, size_t base, int flag);
+int		count_digits_u(size_t n, size_t base);
+int		count_digits_i(int n, size_t base);
+//int	count_digits(int n, size_t base, int flag);
+//char	*ptr_to_hex(uintptr_t address);
 
 #endif
