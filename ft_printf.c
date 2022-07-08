@@ -37,25 +37,28 @@ static int	print_i(int n)
 
 static int	print_u_x(unsigned int n, int flag)
 {
-	char	*hex;
-
 	if (flag == 'u')
 	{
 		ft_putnbr_u_x(n, 10, flag);
-		return (count_digits(n, 10, 'u'));
+		return (count_digits(n, 10, flag));
 	}
 	else
 	{
 		ft_putnbr_u_x(n, 16, flag);
-		return (count_digits(n, 16, 'u'));
+		return (count_digits(n, 16, flag));
 	}
 }
 
 static int	print_p(uintptr_t p)
 {
-	int		num;
+	int	num;
 	char	*hex;
-
+	
+	if (p == 0)
+	{
+		ft_putstr_fd("(nil)", 1);
+		return (5);
+	}
 	hex = ptr_to_hex(p);
 	ft_putstr_fd("0x", 1);
 	ft_putstr_fd(hex, 1);
@@ -66,7 +69,7 @@ static int	print_p(uintptr_t p)
 
 static int	print_all(va_list ap, const char *format)
 {
-	int		num;
+	int	num;
 
 	num = 0;
 	if (*format == '%')
