@@ -33,7 +33,7 @@ int	count_digits_i(int n, size_t base)
 		return (1 + count_digits_u(-n, base)); //plus 1 for the minus
 	return (count_digits_u(n, base));
 }
-
+/*
 int	count_digits(int n, size_t base, int flag)
 {
 	int	count;
@@ -85,4 +85,4 @@ char	*ptr_to_hex(uintptr_t address)
 		address /= 16;
 	}
 	return (hex);
-}
+}*/
