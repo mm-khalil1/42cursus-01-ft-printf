@@ -6,21 +6,27 @@
 /*   By: mkhalil <mkhalil@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:08:27 by mkhalil           #+#    #+#             */
-/*   Updated: 2022/07/06 11:08:27 by mkhalil          ###   ########.fr       */
+/*   Updated: 2022/07/08 11:44:12 by mkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putunbr_fd(unsigned int n, int fd)
+void	ft_putnbr_u_x(unsigned int n, unsigned int base, int flag)
 {
-	if (fd < 0)
-		return ;
-	if (n < 10)
-		ft_putchar_fd(n + '0', fd);
+	char	*ref;
+
+	ref = "0123456789abcdef";
+	if (n < base)
+	{
+		if (flag == 'X' && base == 16)
+			ft_putchar_fd(ft_toupper(ref[n]), 1);
+		else	
+			ft_putchar_fd(ref[n], 1);
+	}
 	else
 	{
-		ft_putunbr_fd(n / 10, fd);
-		ft_putunbr_fd(n % 10, fd);
+		ft_putnbr_u_x(n / base, base, flag);
+		ft_putnbr_u_x(n % base, base, flag);
 	}
 }

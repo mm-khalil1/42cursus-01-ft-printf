@@ -6,7 +6,7 @@
 /*   By: mkhalil <mkhalil@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 15:01:35 by mkhalil           #+#    #+#             */
-/*   Updated: 2022/07/05 19:01:58 by mkhalil          ###   ########.fr       */
+/*   Updated: 2022/07/08 11:39:49 by mkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ static int	print_c(int c)
 
 static int	print_s(char *s)
 {
+	if (s == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
 	ft_putstr_fd(s, 1);
 	return (ft_strlen(s));
 }
@@ -36,14 +41,12 @@ static int	print_u_x(unsigned int n, int flag)
 
 	if (flag == 'u')
 	{
-		ft_putunbr_fd(n, 1);
+		ft_putnbr_u_x(n, 10, flag);
 		return (count_digits_u(n, 10));
 	}
 	else
 	{
-		hex = dec_to_hex(n, flag);
-		ft_putstr_fd(hex, 1);
-		free(hex);
+		ft_putnbr_u_x(n, 16, flag);
 		return (count_digits_u(n, 16));
 	}
 }
