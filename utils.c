@@ -34,6 +34,29 @@ int	count_digits_i(int n, unsigned int base)
 	return (count_digits_u(n, base));
 }
 
+int	count_digits(int n, unsigned int base, int flag)
+{
+	int	count;
+	
+	count = 1;
+	if (flag == 'i')
+	{
+		if (n == -2147483648)
+			return (11);
+		if (n < 0)
+		{
+			count++;
+			n = -n;
+		}
+	}
+	while ((unsigned int)n > (base - 1))
+	{
+		n /= base;
+		count++;
+	}
+	return (count);
+}
+
 char	*dec_to_hex(unsigned int num, int flag)
 {
 	char	* base;
