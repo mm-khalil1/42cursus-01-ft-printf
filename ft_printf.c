@@ -59,18 +59,7 @@ static int	print_p(uintptr_t p)
 	ft_putstr_fd("0x", 1);
 	ft_putnbr_u_x(p, 16, 'x');
 	return (2 + count_digits_u(p, 16));
-/*	int	num;
-	char	*hex;
-	
-	hex = ptr_to_hex(p);
-	ft_putstr_fd("0x", 1);
-	ft_putstr_fd(hex, 1);
-	num = 2 + ft_strlen(hex); //add 2 for "0x"
-	free(hex);
-	return (num);*/
 }
-
-size_t	ft_putptr(	
 
 static int	print_all(va_list ap, const char *format)
 {
