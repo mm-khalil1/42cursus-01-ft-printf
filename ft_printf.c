@@ -40,25 +40,25 @@ static int	print_u_x(unsigned int nbr, int flag)
 	if (flag == 'u')
 	{
 		ft_putnbr_u_x(nbr, 10, flag);
-		return (count_digits_u(nbr, 10, flag));
+		return (count_digits_u(nbr, 10));
 	}
 	else
 	{
 		ft_putnbr_u_x(nbr, 16, flag);
-		return (count_digits_u(nbr, 16, flag));
+		return (count_digits_u(nbr, 16));
 	}
 }
 
-static int	print_p(uintptr_t ptr_add)
+static int	print_p(uintptr_t ptr_address)
 {
-	if (ptr_add == 0)
+	if (ptr_address == 0)
 	{
 		ft_putstr_fd("(nil)", 1);
 		return (5);
 	}
 	ft_putstr_fd("0x", 1);
-	ft_putnbr_u_x(ptr_add, 16, 'x');
-	return (2 + count_digits_u(ptr_add, 16));
+	ft_putnbr_u_x(ptr_address, 16, 'x');
+	return (2 + count_digits_u(ptr_address, 16));
 }
 
 static int	print_all(va_list ap, const char *format)
