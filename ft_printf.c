@@ -18,15 +18,15 @@ static int	print_c(int c)
 	return (1);
 }
 
-static int	print_s(char *s)
+static int	print_s(char *str)
 {
-	if (s == NULL)
+	if (str == NULL)
 	{
 		ft_putstr_fd("(null)", 1);
 		return (6);
 	}
-	ft_putstr_fd(s, 1);
-	return (ft_strlen(s));
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }
 
 static int	print_i(int nbr)
@@ -49,16 +49,16 @@ static int	print_u_x(unsigned int nbr, int flag)
 	}
 }
 
-static int	print_p(uintptr_t p)
+static int	print_p(uintptr_t ptr_add)
 {
-	if (p == 0)
+	if (ptr_add == 0)
 	{
 		ft_putstr_fd("(nil)", 1);
 		return (5);
 	}
 	ft_putstr_fd("0x", 1);
-	ft_putnbr_u_x(p, 16, 'x');
-	return (2 + count_digits_u(p, 16));
+	ft_putnbr_u_x(ptr_add, 16, 'x');
+	return (2 + count_digits_u(ptr_add, 16));
 }
 
 static int	print_all(va_list ap, const char *format)
