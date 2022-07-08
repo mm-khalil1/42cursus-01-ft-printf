@@ -29,31 +29,28 @@ static int	print_s(char *s)
 	return (ft_strlen(s));
 }
 
-static int	print_i(int n)
+static int	print_i(int nbr)
 {
-	ft_putnbr_fd(n, 1);
-	return (count_digits(n, 10, 'i'));
+	ft_putnbr_fd(nbr, 1);
+	return (count_digits_i(nbr, 10));
 }
 
-static int	print_u_x(unsigned int n, int flag)
+static int	print_u_x(unsigned int nbr, int flag)
 {
 	if (flag == 'u')
 	{
-		ft_putnbr_u_x(n, 10, flag);
-		return (count_digits(n, 10, flag));
+		ft_putnbr_u_x(nbr, 10, flag);
+		return (count_digits_u(nbr, 10, flag));
 	}
 	else
 	{
-		ft_putnbr_u_x(n, 16, flag);
-		return (count_digits(n, 16, flag));
+		ft_putnbr_u_x(nbr, 16, flag);
+		return (count_digits_u(nbr, 16, flag));
 	}
 }
 
 static int	print_p(uintptr_t p)
 {
-//	int	num;
-//	char	*hex;
-	
 	if (p == 0)
 	{
 		ft_putstr_fd("(nil)", 1);
@@ -62,7 +59,10 @@ static int	print_p(uintptr_t p)
 	ft_putstr_fd("0x", 1);
 	ft_putnbr_u_x(p, 16, 'x');
 	return (2 + count_digits_u(p, 16));
-/*	hex = ptr_to_hex(p);
+/*	int	num;
+	char	*hex;
+	
+	hex = ptr_to_hex(p);
 	ft_putstr_fd("0x", 1);
 	ft_putstr_fd(hex, 1);
 	num = 2 + ft_strlen(hex); //add 2 for "0x"
