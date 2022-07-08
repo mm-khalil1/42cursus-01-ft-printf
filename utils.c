@@ -12,26 +12,26 @@
 
 #include "ft_printf.h"
 
-int	count_digits_u(size_t n, size_t base)
+int	count_digits_u(size_t nbr, size_t base)
 {
 	int	count;
 
 	count = 1;
-	while (n > (base - 1))
+	while (nbr > (base - 1))
 	{
-		n /= base;
+		nbr /= base;
 		count++;
 	}
 	return (count);
 }
 
-int	count_digits_i(int n, size_t base)
+int	count_digits_i(int nbr, size_t base)
 {
-	if (n == -2147483648)
+	if (nbr == -2147483648)
 		return (11);
-	if (n < 0)
-		return (1 + count_digits_u(-n, base)); //plus 1 for the minus
-	return (count_digits_u(n, base));
+	if (nbr < 0)
+		return (1 + count_digits_u(-nbr, base)); //plus 1 for the minus
+	return (count_digits_u(nbr, base));
 }
 /*
 int	count_digits(int n, size_t base, int flag)
