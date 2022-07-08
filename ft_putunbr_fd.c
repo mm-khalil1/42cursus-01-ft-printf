@@ -12,15 +12,18 @@
 
 #include "ft_printf.h"
 
-void	ft_putunbr_fd(unsigned int n, int fd)
+void	ft_putunbr_fd(unsigned int n, int fd, unsigned int base)
 {
+	char	*ref;
+
+	ref = "0123456789abcdef";
 	if (fd < 0)
 		return ;
-	if (n < 10)
-		ft_putchar_fd(n + '0', fd);
+	if (n < base)
+		ft_putchar_fd(ref[n], fd);
 	else
 	{
-		ft_putunbr_fd(n / 10, fd);
-		ft_putunbr_fd(n % 10, fd);
+		ft_putunbr_fd(n / base, fd);
+		ft_putunbr_fd(n % base, fd);
 	}
 }

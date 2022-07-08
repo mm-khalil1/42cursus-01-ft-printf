@@ -20,6 +20,11 @@ static int	print_c(int c)
 
 static int	print_s(char *s)
 {
+	if (s == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
 	ft_putstr_fd(s, 1);
 	return (ft_strlen(s));
 }
@@ -36,14 +41,14 @@ static int	print_u_x(unsigned int n, int flag)
 
 	if (flag == 'u')
 	{
-		ft_putunbr_fd(n, 1);
+		ft_putunbr_fd(n, 1, 10);
 		return (count_digits_u(n, 10));
 	}
 	else
 	{
-		hex = dec_to_hex(n, flag);
-		ft_putstr_fd(hex, 1);
-		free(hex);
+		ft_putunbr_fd(n, 1, 16);
+		if (flag == 'X')
+
 		return (count_digits_u(n, 16));
 	}
 }
