@@ -1,8 +1,7 @@
 NAME = libftprintf.a
 
 SRC = ft_putnbr_base.c		\
-      	count_digits_u.c	\
-     	count_digits_i.c
+      	count_digits.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -18,12 +17,13 @@ $(NAME): $(OBJ)
 	mv libft.a $(NAME)
 	ar -rc $(NAME) $(OBJ)
 
-clean:	make clean -C libft
+clean:	
 	rm -f $(OBJ)
-
-fclean: make fclean libft
-	clean
+	make clean -C libft
+	
+fclean: clean
 	rm -f $(NAME)
-
+	make fclean -C libft
+	
 re: fclean all
 
