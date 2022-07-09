@@ -39,12 +39,12 @@ static int	print_u_x(unsigned int nbr, int flag)
 {
 	if (flag == 'u')
 	{
-		ft_putnbr_u_x(nbr, 10, flag);
+		ft_putnbr_base(nbr, 10, flag);
 		return (count_digits_u(nbr, 10));
 	}
 	else
 	{
-		ft_putnbr_u_x(nbr, 16, flag);
+		ft_putnbr_base(nbr, 16, flag);
 		return (count_digits_u(nbr, 16));
 	}
 }
@@ -57,7 +57,7 @@ static int	print_p(uintptr_t ptr_address)
 		return (5);
 	}
 	ft_putstr_fd("0x", 1);
-	ft_putnbr_u_x(ptr_address, 16, 'x');
+	ft_putnbr_base(ptr_address, 16, 'x');
 	return (2 + count_digits_u(ptr_address, 16));
 }
 

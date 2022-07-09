@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_u_x.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhalil <mkhalil@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 11:08:27 by mkhalil           #+#    #+#             */
-/*   Updated: 2022/07/08 11:44:12 by mkhalil          ###   ########.fr       */
+/*   Created: 2022/07/09 18:48:04 by mkhalil           #+#    #+#             */
+/*   Updated: 2022/07/09 18:48:04 by mkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "ft_printf.h"
 
-void	ft_putnbr_u_x(size_t nbr, size_t base, int flag)
+void	ft_putnbr_base(size_t nbr, size_t base, int flag)
 {
 	char	*ref;
 
@@ -26,7 +27,7 @@ void	ft_putnbr_u_x(size_t nbr, size_t base, int flag)
 	}
 	else
 	{
-		ft_putnbr_u_x(nbr / base, base, flag);
-		ft_putnbr_u_x(nbr % base, base, flag);
+		ft_putnbr_base(nbr / base, base, flag);
+		ft_putnbr_base(nbr % base, base, flag);
 	}
 }

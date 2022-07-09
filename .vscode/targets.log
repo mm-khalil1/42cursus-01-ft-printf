@@ -1,6 +1,5 @@
 make all -f /c/Users/mkhal/Documents/libft/libftTester --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: /c/Users/mkhal/Documents/libft/libftTester: No such file or directory
-
 make: *** No rule to make target '/c/Users/mkhal/Documents/libft/libftTester'.  Stop.
 
 # GNU Make 4.2.1
@@ -10,7 +9,7 @@ make: *** No rule to make target '/c/Users/mkhal/Documents/libft/libftTester'.  
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul  9 18:15:46 2022
+# Make data base, printed on Sat Jul  9 18:48:26 2022
 
 # Variables
 
@@ -195,6 +194,6 @@ all:
 # strcache performance: lookups = 9 / hit rate = 33%
 # hash-table stats:
 # Load=6/8192=0%, Rehash=0, Collisions=0/9=0%
-# Finished Make data base on Sat Jul  9 18:15:46 2022
+# Finished Make data base on Sat Jul  9 18:48:26 2022
 
  

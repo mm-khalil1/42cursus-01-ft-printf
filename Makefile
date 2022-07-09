@@ -1,7 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mkhalil <mkhalil@student.42abudhabi.ae>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/09 18:48:23 by mkhalil           #+#    #+#              #
+#    Updated: 2022/07/09 18:48:23 by mkhalil          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libftprintf.a
 
 SRC = ft_putnbr_base.c		\
-      	count_digits.c
+      	count_digits.c		\
+		ft_printf.c
 
 OBJ = $(SRC:.c=.o)
 
