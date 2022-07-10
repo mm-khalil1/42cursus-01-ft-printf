@@ -6,7 +6,7 @@
 /*   By: mkhalil <mkhalil@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 21:31:29 by mkhalil           #+#    #+#             */
-/*   Updated: 2022/07/10 21:35:05 by mkhalil          ###   ########.fr       */
+/*   Updated: 2022/07/10 22:15:04 by mkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ int	print_u_x(unsigned int nbr, int flag)
 
 int	print_p(uintptr_t ptr_address)
 {
+	ft_putstr_fd("0x", 1);
 	if (ptr_address == 0)
 	{
-		ft_putstr_fd("(nil)", 1);
-		return (5);
+		ft_putchar_fd('0', 1);
+		return (3);
 	}
-	ft_putstr_fd("0x", 1);
 	ft_putnbr_base(ptr_address, 16, 'x');
 	return (2 + count_digits_u(ptr_address, 16));
 }
