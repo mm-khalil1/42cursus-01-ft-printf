@@ -1,9 +1,13 @@
-make -f /c/Users/mkhal/Documents/libft/libftTester --dry-run --keep-going --print-directory
-make: Entering directory '/mnt/d/Desktop/Online_Courses/42AbuDhabi/ft_printf'
-make: Leaving directory '/mnt/d/Desktop/Online_Courses/42AbuDhabi/ft_printf'
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/mkhalil/Desktop/42Cursus/ft_printf'
+gcc -Wall -Wextra -Werror   -c -o ft_putnbr_base.o ft_putnbr_base.c
  
-make: /c/Users/mkhal/Documents/libft/libftTester: No such file or directory
-make: *** No rule to make target '/c/Users/mkhal/Documents/libft/libftTester'.
-make: Failed to remake makefile '/c/Users/mkhal/Documents/libft/libftTester'.
-make: *** No targets specified and no makefile found.  Stop.
-
+gcc -Wall -Wextra -Werror   -c -o count_digits.o count_digits.c
+gcc -Wall -Wextra -Werror   -c -o print_utils.o print_utils.c
+gcc -Wall -Wextra -Werror   -c -o ft_printf.o ft_printf.c
+make -C libft
+cp libft/libft.a .
+mv libft.a libftprintf.a
+ar -rc libftprintf.a ft_putnbr_base.o count_digits.o print_utils.o ft_printf.o
+make: Leaving directory `/Users/mkhalil/Desktop/42Cursus/ft_printf'
+ 

@@ -17,8 +17,13 @@
 # include <stdarg.h>
 
 void	ft_putnbr_base(size_t nbr, size_t base, int flag);
-int	count_digits_u(size_t nbr, size_t base);
-int	count_digits_i(int nbr, size_t base);
-int	ft_printf(const char *format, ...);
+int		count_digits_u(size_t nbr, size_t base);
+int		count_digits_i(int nbr, size_t base);
+int		print_c(int c);
+int		print_s(char *str);
+int		print_i(int nbr);
+int		print_u_x(unsigned int nbr, int flag);
+int		print_p(uintptr_t ptr_address);
+int		ft_printf(const char *format, ...);
 
 #endif

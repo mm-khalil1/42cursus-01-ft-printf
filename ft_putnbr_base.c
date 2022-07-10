@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_printf.h"
 
 void	ft_putnbr_base(size_t nbr, size_t base, int flag)
@@ -22,7 +21,7 @@ void	ft_putnbr_base(size_t nbr, size_t base, int flag)
 	{
 		if (flag == 'X' && base == 16)
 			ft_putchar_fd(ft_toupper(ref[nbr]), 1);
-		else	
+		else
 			ft_putchar_fd(ref[nbr], 1);
 	}
 	else

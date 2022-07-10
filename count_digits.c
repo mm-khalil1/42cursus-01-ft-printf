@@ -30,6 +30,6 @@ int	count_digits_i(int nbr, size_t base)
 	if (nbr == -2147483648)
 		return (11);
 	if (nbr < 0)
-		return (1 + count_digits_u(-nbr, base)); //plus 1 for the minus
+		return (1 + count_digits_u(-nbr, base));
 	return (count_digits_u(nbr, base));
 }

@@ -12,55 +12,6 @@
 
 #include "ft_printf.h"
 
-static int	print_c(int c)
-{
-	ft_putchar_fd(c, 1);
-	return (1);
-}
-
-static int	print_s(char *str)
-{
-	if (str == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-}
-
-static int	print_i(int nbr)
-{
-	ft_putnbr_fd(nbr, 1);
-	return (count_digits_i(nbr, 10));
-}
-
-static int	print_u_x(unsigned int nbr, int flag)
-{
-	if (flag == 'u')
-	{
-		ft_putnbr_base(nbr, 10, flag);
-		return (count_digits_u(nbr, 10));
-	}
-	else
-	{
-		ft_putnbr_base(nbr, 16, flag);
-		return (count_digits_u(nbr, 16));
-	}
-}
-
-static int	print_p(uintptr_t ptr_address)
-{
-	if (ptr_address == 0)
-	{
-		ft_putstr_fd("(nil)", 1);
-		return (5);
-	}
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base(ptr_address, 16, 'x');
-	return (2 + count_digits_u(ptr_address, 16));
-}
-
 static int	print_all(va_list ap, const char *format)
 {
 	int	num;
@@ -83,16 +34,16 @@ static int	print_all(va_list ap, const char *format)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list ap;
+	va_list	ap;
 	int		num_chars;
-	
+
 	num_chars = 0;
 	va_start(ap, format);
 	while (*format)
 	{
 		if (*format == '%')
 			num_chars += print_all(ap, ++format);
-		else 
+		else
 		{
 			ft_putchar_fd(*format, 1);
 			num_chars++;

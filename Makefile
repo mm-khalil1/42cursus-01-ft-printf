@@ -14,6 +14,7 @@ NAME = libftprintf.a
 
 SRC = ft_putnbr_base.c		\
       	count_digits.c		\
+		print_utils.c		\
 		ft_printf.c
 
 OBJ = $(SRC:.c=.o)
