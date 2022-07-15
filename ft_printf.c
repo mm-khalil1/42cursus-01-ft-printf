@@ -11,6 +11,30 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
+
+static int	check_format(const char *format)
+{
+	int	i;
+
+	i = 0;
+	while (format[i])
+	{
+		if (format[i++] == '%')
+		{
+			if (format[i] == '\0' || !(format[i] == 'c' || format[i] == 's'
+					|| format[i] == 'p' || format[i] == '%' || format[i] == 'i'
+					|| format[i] == 'd' || format[i] == 'u' || format[i] == 'x'
+					|| format[i] == 'X'))
+			{
+				ft_putstr_fd("\n! Format specified incorrectly after '%' !\n", 1);
+				return (-1);
+			}
+			i++;
+		}
+	}
+	return (0);
+}
 
 static int	print_all(va_list ap, const char *format)
 {
@@ -37,8 +61,10 @@ int	ft_printf(const char *format, ...)
 	va_list	ap;
 	int		num_chars;
 
-	num_chars = 0;
 	va_start(ap, format);
+	num_chars = check_format(format);
+	if (num_chars != 0)
+		return (0);
 	while (*format)
 	{
 		if (*format == '%')
