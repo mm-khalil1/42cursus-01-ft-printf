@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	num;
+	int						sign;
+	unsigned long long int	num;
 
 	sign = 1;
 	num = 0;
@@ -26,10 +26,14 @@ int	ft_atoi(const char *str)
 		if (*str++ == '-')
 			sign *= -1;
 	while (*str >= '0' && *str <= '9')
+	{
 		num = num * 10 + (*str++ - 48);
-	if ((unsigned int)num > 2147483647 && sign == 1)
+		if (num > 9223372036854775807)
+			break ;
+	}
+	if (num > 9223372036854775807 && sign == 1)
 		return (-1);
-	if ((unsigned int)num > 2147483648 && sign == -1)
+	if (num > 9223372036854775807 && sign == -1)
 		return (0);
-	return (num * sign);
+	return ((int)(num * sign));
 }

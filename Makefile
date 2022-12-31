@@ -13,22 +13,21 @@
 NAME = libftprintf.a
 
 SRC = ft_putnbr_base.c		\
-      	count_digits.c		\
-		print_utils.c		\
+      	ft_printf_utils1.c		\
+		ft_printf_utils2.c		\
 		ft_printf.c
 
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft
-	cp libft/libft.a .
-	mv libft.a $(NAME)
+	mv libft/libft.a $(NAME)
 	ar -rc $(NAME) $(OBJ)
 
 clean:	
