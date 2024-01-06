@@ -1,4 +1,4 @@
-### About
+# About
 
 The ft_printf function prints formatted output to the standard output. It is a recreation of the famous C library printf function. 
 
